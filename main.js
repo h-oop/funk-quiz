@@ -3,12 +3,34 @@
 // Event Listener (Mark Quiz)
 document.getElementById('mark-quiz').addEventListener('click', markQuiz);
 
+let score = 0;
+
+
 // Event Function
 function markQuiz() {
     // Initialize Score
-    let score = 0;
+    score = 0;
+    // Mark q's
+    markQuestion1();
+    markQuestion2();
+    markQuestion3();
+    markQuestion4();
 
-    // Check Question 1
+
+    // Display Quiz Results
+    document.getElementById('quiz-score').innerHTML = score;
+    document.getElementById('quiz-percent').innerHTML = Math.round(score / 4 * 100);
+
+
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+//define & invoke - local variables - organized
+function markQuestion1() {
     let answer = document.getElementById('answer1').value;
     answer = answer.toLowerCase();
 
@@ -21,9 +43,10 @@ function markQuiz() {
         result1El.innerHTML = 'Incorrect';
         result1El.style.color = 'red';
     }
+}
 
-    // Check Question 2
-    answer = document.getElementById('answer2').value;
+function markQuestion2() {
+    let answer = document.getElementById('answer2').value;
     answer = answer.toLowerCase();
 
     let result2El = document.getElementById('result2');
@@ -35,9 +58,10 @@ function markQuiz() {
         result2El.innerHTML = 'Incorrect';
         result2El.style.color = 'red';
     }
+}
 
-    // Check Question 3
-    answer = document.getElementById('answer3').value;
+function markQuestion3() {
+    let answer = document.getElementById('answer3').value;
     answer = answer.toLowerCase();
 
     let result3El = document.getElementById('result3');
@@ -49,9 +73,10 @@ function markQuiz() {
         result3El.innerHTML = 'Incorrect';
         result3El.style.color = 'red';
     }
+}
 
-    // Check Question 4
-    answer = document.getElementById('answer4').value;
+function markQuestion4() {
+    let answer = document.getElementById('answer4').value;
     answer = answer.toLowerCase();
 
     let result4El = document.getElementById('result4');
@@ -63,10 +88,4 @@ function markQuiz() {
         result4El.innerHTML = 'Incorrect';
         result4El.style.color = 'red';
     }
-
-    // Display Quiz Results
-    document.getElementById('quiz-score').innerHTML = score;
-    document.getElementById('quiz-percent').innerHTML = Math.round(score / 4 * 100);
-
-
 }
